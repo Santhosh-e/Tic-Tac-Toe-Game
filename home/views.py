@@ -39,3 +39,6 @@ def play(request , room_code):
     option =request.session['option']
     context = {'room_code' : room_code , 'username' : username ,'option': option}
     return render(request, 'play.html' , context)
+
+def base(request,room):
+    return render(request,"play.html")
