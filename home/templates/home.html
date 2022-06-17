@@ -1,0 +1,60 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
+    <title>Tic Tac Toe Game!</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+
+<body class="bg-dark">
+
+
+        <div class="center">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-light">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <h2>PLAY TIC-TAC-TOE</h2>
+            <form method="post">
+                {% csrf_token %}
+                    <div class="txt_field">
+                        <input type="text" name="username" class="form-control" required>
+                        <label class="text-white">Enter user name</label>
+                    </div>
+
+                    <div class="txt_field">
+                        <select class="form-control" name="option" required>
+                            <option value=""></option>
+                            <option value="1">Have room Code</option>
+                            <option value="2">Create room Code</option>
+                        </select>
+                        <label class="text-white">Select Option</label>
+                    </div>
+
+                    <div class="txt_field">
+                        <input type="text" name="room_code" class="form-control" required>
+                        <label class="text-white">Enter Room Code</label>
+                    </div> 
+                <button type="submit" class="button" >Start Game</button>
+
+            </form>
+
+        </div>
+
+
+
+</body>
+
+</html>
